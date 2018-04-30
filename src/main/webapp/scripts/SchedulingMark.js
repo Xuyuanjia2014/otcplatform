@@ -10,10 +10,10 @@ option = {
     },
     series: [
         {
-            name: '业务指标',
+            name: '调度评分',
             type: 'gauge',
-            detail: {formatter:'{value}%'},
-            data: [{value: 50, name: '完成率'}]
+            detail: {formatter:'{value}'},
+            data: [{value: 50, name: '调度效果'}]
         }
     ]
 };
