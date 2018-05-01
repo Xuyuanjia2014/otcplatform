@@ -59,7 +59,7 @@ var option2 = {
             data: [{
                 name: 'Pod1',
                 x: 100,
-                y: 100
+                y: 140
             }, {
                 name: 'Pod2',
                 x: 100,
@@ -108,7 +108,7 @@ var option2 = {
 
 var option3 = {
     title: {
-        text: '调度拓扑图'
+        text: '拓扑结构'
     },
     tooltip: {},
     animationDurationUpdate: 5500,
