@@ -1,0 +1,11 @@
+body{
+    background-image: url("/otcplatform/images/background.png");
+    background-repeat: no-repeat;
+}
+
+#content{
+    margin: 105px 0 0 185px;
+    width: 1380px;
+    height: 720px;
+    background: #F8F8F8;
+}
