@@ -12,16 +12,16 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class BaseHttpResponse extends HttpServlet {
 
     Random rand = new Random();
-    AtomicInteger a = new AtomicInteger(rand.nextInt(1000));
-    AtomicInteger b = new AtomicInteger(rand.nextInt(500));
+    Integer a = new Integer(rand.nextInt(1000));
+    Integer b = new Integer(rand.nextInt(500));
 
     @Deprecated
     public String getResult(){
         if(a.equals(b)){
-            return String.valueOf(a.addAndGet(b.get()));
+            return String.valueOf(a);
         }
         else{
-            return String.valueOf(0-a.get());
+            return String.valueOf(b);
         }
     }
     public void doGet(HttpServletRequest request, HttpServletResponse response)
