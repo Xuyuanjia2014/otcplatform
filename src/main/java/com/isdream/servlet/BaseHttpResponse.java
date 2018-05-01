@@ -12,8 +12,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class BaseHttpResponse extends HttpServlet {
 
     Random rand = new Random();
-    Integer a = rand.nextInt(1000);
-    Integer b = rand.nextInt(500);
+    Integer a = new Integer(rand.nextInt(1000));
+    Integer b = new Integer(rand.nextInt(500));
 
     @Deprecated
     public String getResult(){
