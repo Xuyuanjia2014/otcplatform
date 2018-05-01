@@ -34,7 +34,7 @@ public class BaseHttpResponse extends HttpServlet {
         out.println("  <BODY>");
         out.print("    This is ");
         out.print(this.getClass());
-        out.println(", using the GET method");
+        out.println(", using the GET method<br />");
         out.print(getResult());
         out.println("  </BODY>");
         out.println("</HTML>");
