@@ -25,7 +25,7 @@ var startInterval = setInterval(function () {
     if(option.series[0].data[0].value < initValue)
     option.series[0].data[0].value += Math.floor(Math.random()*10);
     myChart.setOption(option, true);
-},300);
+},250);
 //window.clearInterval(startInterval);
 
 
@@ -201,6 +201,6 @@ var reset2Graph = function(){
         if(option.series[0].data[0].value < initValue)
             option.series[0].data[0].value += Math.floor(Math.random()*10);
         myChart.setOption(option, true);
-    },300);
+    },250);
     myChart2.setOption(option3, true);
 }
