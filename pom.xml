@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>otc-platform Maven Webapp</name>
+  <name>otcplatform</name>
   <url>http://www.example.com</url>
 
   <properties>
@@ -17,6 +17,21 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
+
+  <repositories><!-- 代码库 -->
+    <repository>
+      <id>maven-ali</id>
+      <url>http://maven.aliyun.com/nexus/content/groups/public//</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>always</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </snapshots>
+    </repository>
+  </repositories>
 
   <dependencies>
     <dependency>
@@ -69,6 +84,43 @@
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.8.2</version>
         </plugin>
+
+        <plugin>
+          <groupId>io.fabric8</groupId>
+          <artifactId>docker-maven-plugin</artifactId>
+          <version>0.30.0</version>
+
+          <configuration>
+            <dockerHost>tcp://127.0.0.1:2375</dockerHost>
+            <registry>registry.cn-hangzhou.aliyuncs.com</registry>
+            <authConfig>
+              <push>
+                <username>********</username>
+                <password>********s</password>
+              </push>
+            </authConfig>
+
+            <images>
+              <image>
+                <name>xuyuanjia/webservers:v1</name>
+                <alias>web</alias>
+                <build>
+                  <dockerFile>${project.basedir}/Dockerfile</dockerFile>
+                </build>
+                <external>
+                  <type>compose</type>
+                  <basedir>${project.basedir}</basedir>
+                  <composeFile>docker-compose.yml</composeFile>
+                </external>
+                <run>
+                  <namingStrategy>alias</namingStrategy>
+                </run>
+              </image>
+            </images>
+
+          </configuration>
+        </plugin>
+
       </plugins>
     </pluginManagement>
   </build>
