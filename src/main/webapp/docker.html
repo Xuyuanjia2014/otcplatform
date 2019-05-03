@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Docker learn</title>
+</head>
+<body>
+<h3>容器及镜像管理(36个命令)</h3>
+
+<p>
+    docker login : 登陆到一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub<br />
+
+    docker logout : 登出一个Docker镜像仓库，如果未指定镜像仓库地址，默认为官方仓库 Docker Hub<br />
+
+    docker pull : 从镜像仓库中拉取或者更新指定镜像 <br />
+
+    docker push : 将本地的镜像上传到镜像仓库,要先登陆到镜像仓库<br />
+
+    docker search : 从Docker Hub查找镜像<br />
+
+    docker images : 列出本地镜像。<br />
+
+    docker rmi : 删除本地一个或多少镜像。<br />
+
+    docker tag : 标记本地镜像，将其归入某一仓库。<br />
+
+    docker build 命令用于使用 Dockerfile 创建镜像。<br />
+
+    docker history : 查看指定镜像的创建历史。<br />
+
+    docker save : 将指定镜像保存成 tar 归档文件。<br />
+
+    docker load : 导入使用 docker save 命令导出的镜像。<br />
+
+    docker import : 从归档文件中创建镜像。<br />
+
+    docker run ：创建一个新的容器并运行一个命令<br />
+
+    docker start :启动一个或多个已经被停止的容器<br />
+
+    docker stop :停止一个运行中的容器<br />
+
+    docker restart :重启容器<br />
+
+    docker kill :杀掉一个运行中的容器。<br />
+
+    docker rm ：删除一个或多少容器 <br />
+
+    docker pause :暂停容器中所有的进程。<br />
+
+    docker unpause :恢复容器中所有的进程。<br />
+
+    docker create ：创建一个新的容器但不启动它<br />
+
+    docker exec ：在运行的容器中执行命令<br />
+
+    docker ps : 列出容器<br />
+
+    docker inspect : 获取容器/镜像的元数据。<br />
+
+    docker top :查看容器中运行的进程信息，支持 ps 命令参数。<br />
+
+    docker attach :连接到正在运行中的容器。<br />
+
+    docker events : 从服务器获取实时事件<br />
+
+    docker logs : 获取容器的日志<br />
+
+    docker export :将文件系统作为一个tar归档文件导出到STDOUT。<br />
+
+    docker port :列出指定的容器的端口映射，或者查找将PRIVATE_PORT NAT到面向公众的端口。<br />
+
+    docker commit :从容器创建一个新的镜像。<br />
+
+    docker cp :用于容器与主机之间的数据拷贝。<br />
+
+    docker diff : 检查容器里文件结构的更改。<br />
+
+    docker info : 显示 Docker 系统信息，包括镜像和容器数。<br />
+
+    docker version :显示 Docker 版本信息。<br />
+</p>
+
+<h4> docker run/create 参数：</h4>
+<p>
+    -a stdin: 指定标准输入输出内容类型，可选 STDIN/STDOUT/STDERR 三项；
+</p>
+
+<p>
+    -d: 后台运行容器，并返回容器ID；
+</p>
+
+<p>
+    -i: 以交互模式运行容器，通常与 -t 同时使用；
+</p>
+
+<p>
+    -p: 端口映射，格式为：主机(宿主)端口:容器端口
+</p>
+
+<p>
+    -t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；
+</p>
+
+<p>
+    --name="tomcat": 为容器指定一个名称；
+</p>
+
+<p>
+    -e username="ritchie": 设置环境变量；
+</p>
+
+<p>
+    --cpuset="0-2" or --cpuset="0,1,2": 绑定容器到指定CPU运行；
+</p>
+<p>
+    -m :设置容器使用内存最大值；
+</p>
+
+<p>
+    --net="bridge": 指定容器的网络连接类型，支持 bridge/host/none/container: 四种类型；
+</p>
+
+<h4> docker rm 参数：</h4>
+<p>
+    -f :通过SIGKILL信号强制删除一个运行中的容器
+</p>
+
+<p>
+    -l :移除容器间的网络连接，而非容器本身
+</p>
+
+<p>
+    -v :-v 删除与容器关联的卷
+</p>
+
+<h4> docker exec 参数：</h4>
+<p>
+    -d :分离模式: 在后台运行
+</p>
+
+<p>
+    -i :即使没有附加也保持STDIN 打开
+</p>
+
+<p>
+    -t :分配一个伪终端
+</p>
+
+<h4> docker ps 参数：</h4>
+<p>
+    -a :显示所有的容器，包括未运行的。
+</p>
+
+<p>
+    -n :列出最近创建的n个容器。
+</p>
+
+<p>
+    -l :显示最近创建的容器。
+</p>
+
+<h4> docker inspect 参数：</h4>
+<p>
+    -f :指定返回值的模板文件。
+</p>
+
+<p>
+    -s :显示总的文件大小。
+</p>
+
+<p>
+    --type :为指定类型返回JSON。
+</p>
+
+<h4> docker events 参数：</h4>
+<p>
+    -f ：根据条件过滤事件；
+</p>
+
+<p>
+    --since ：从指定的时间戳后显示所有事件;
+</p>
+
+<p>
+    --until ：流水时间显示到指定的时间为止；
+</p>
+
+<h4> docker logs 参数：</h4>
+<p>
+    -f : 跟踪日志输出
+</p>
+
+<p>
+    --since :显示某个开始时间的所有日志
+</p>
+
+<p>
+    -t : 显示时间戳
+</p>
+
+<p>
+    --tail :仅列出最新N条容器日志
+</p>
+
+<h4> docker commit 参数：</h4>
+<p>
+    -a :提交的镜像作者；
+</p>
+
+<p>
+    -c :使用Dockerfile指令来创建镜像；
+</p>
+
+<p>
+    -m :提交时的说明文字；
+</p>
+
+<p>
+    -p :在commit时，将容器暂停。
+</p>
+
+<h4> docker build 参数：</h4>
+<p>
+    -f :指定要使用的Dockerfile路径；
+</p>
+
+<p>
+    --tag, -t: 镜像的名字及标签，通常 name:tag 或者 name 格式；可以在一次构建中为一个镜像设置多个标签。
+</p>
+
+<p>
+    --rm :设置镜像成功后删除中间容器；
+</p>
+
+<p>
+    docker login -u 用户名 -p 密码
+    docker run -p 127.0.0.1:80:8080/tcp ubuntu bash <br />
+    docker run -p 80:80 -v /data:/data -d nginx:latest<br />
+    docker kill -s KILL mynginx<br />
+    docker attach --sig-proxy=false mynginx<br />
+    docker export -o mysql-`date +%Y%m%d`.tar a404c6c174a2<br />
+    docker save -o my_ubuntu_v3.tar runoob/ubuntu:v3<br />
+    docker load -i ubuntu.tar<br />
+    docker import  my_ubuntu_v3.tar runoob/ubuntu:v4<br />
+</p>
+
+
+</body>
+</html>
